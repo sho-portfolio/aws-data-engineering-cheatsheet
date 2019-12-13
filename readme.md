@@ -39,4 +39,11 @@
 
 # copy file(s) from github / internet to s3 via local-machine / ec2 instance
 
+# use athena to query xml file on s3
+
+# redshift
+
+# use lambda to run sql
+
+# lake formation
 
