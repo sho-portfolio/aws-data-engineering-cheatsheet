@@ -1,16 +1,16 @@
-# create ec2 instance on aws
+create ec2 instance on aws
 
-# modify ec2 instance to enable access to s3
+modify ec2 instance to enable access to s3
 
-# connect to ec2 instance via ssh
+connect to ec2 instance via ssh
 
-# install python3 on ec2 instance
+install python3 on ec2 instance
 
-# run python code on ec2 instance
+un python code on ec2 instance
 
-# install mysql on ec2 instance
+install mysql on ec2 instance
 
-# create mysql instance on aws
+create mysql instance on aws
 
 connect to mysql instance from ec2 instance
 
