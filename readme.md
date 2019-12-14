@@ -174,3 +174,39 @@ https://medium.com/@chamikakasun/installing-mysql-in-an-ec2-instance-55d6a3e19ca
 - goto maange extensions
 - search for integration services
 - install it
+
+
+## install a developer edition of sql server with ssis on an ec2 instance
+- launch a windows ec2 (free tier)
+- turn off the ie warnings and blockers
+-   launch server manager
+-   click 'configure this local server'
+-   click link next to 'ie enhanced security configuration'
+-   check off for both options and hit ok and (re)leanch ie
+- goto www.microsoft.com/en-us/sql-server/developer-tools
+- download 'sql server 2017 developer edition'
+- run the download
+- select 'custom' for the installation type
+- click install (~5min to d/l and get to the next step)
+- click on 'installation' on the left menu
+- click 'next' | accept licence | click 'next'...
+- at the 'feature selection' screen, check the following options:
+-   Database Engine Services
+-   Full-Text and Semantic Extractions for Search
+-   Client Tools Connectivity
+-   Integration Services (don't need the 'Scale Out...' options)
+- click 'next' and follow prompts until you get to 'database engine configuration'
+- at 'database engine configuration' click 'add current user' and hit next then install (~5min)
+
+- now install the front end tools (ssms)
+- select 'install sql server management tools' (from the already open 'sql server installation center' if not open goto start -> microsoft sql server 2017 -> sql server 201 installation center
+- from the website 'download ssms' and install it
+- you'll be forced to restart your ec2 instance (don't conect too quickly as the ec2 instance needs to restart fully before you can connect and it takes ~2 mins
+- launch sql server management studio and connect!
+
+- download 'visual studio 2019 community edition' and begin install
+- when you get to the workloads screen check the 'data storage and processing' toolset
+- click install (~5min)
+
+
+
