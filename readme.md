@@ -206,7 +206,7 @@ https://medium.com/@chamikakasun/installing-mysql-in-an-ec2-instance-55d6a3e19ca
 
 - download 'visual studio 2019 community edition' and begin install
 - when you get to the workloads screen check the 'data storage and processing' toolset
-- click install (~5min)
-
+- click install (~2hrs)
+- 
 
 
