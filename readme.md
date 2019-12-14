@@ -48,16 +48,64 @@
 - type ```ls``` or ```pwd``` to check that you have connected successfully
   
 ## install python3 on ec2 instance
+- sudo yum install python36
+
+## install python libraries on ec2 instance
+- ```pip install --upgrade --user pip```
+- ```pip install --no-cache-dir --user tensorflow```
+- ```pip install --user pandas```
+
+## copy file(s) from s3 to ec2 instance
+- to see s3 buckets: ```aws s3 ls```
+- to copy entire bucket: 
+    ```aws s3 sync s3://quantified-self-20191211 .``` (copy to current directory)
+    ```aws s3 sync s3://remote_S3_bucket local_directory``` (copy to specified directory)
+- to copy a specific file:
+    ```aws s3 cp s3://my_bucket/my_folder/my_file.ext my_copied_file.ext
+
+## copy file(s) from ec2 instance to s3
+- ```aws s3 cp my_copied_file.ext s3://my_bucket/my_folder/my_file.ext```
 
 ## run python code on ec2 instance
+- python3 mypythonfile.py
 
 ## install mysql on ec2 instance
+https://medium.com/@chamikakasun/installing-mysql-in-an-ec2-instance-55d6a3e19caf
+- ```sudo su```
+- ```yum update -y```
+- ```yum install mysql-server```
+- ```service mysqld start```
 
 ## create mysql instance on aws
+- goto rds
+- click 'create database'
+- select 'standard create'
+- select 'mysql'
+- select the 'free tier' within 'templates'
+- set the 'db instance identifier' to: sho_db_mysql_YYYYMMDD
+- set username and password
+- within the 'connectivity' section expand 'additional connectivity configuration'
+- check 'yes' for 'public access' (this wil allow you to connect from outside the vpn i.e. from a client on your mac)
+- uncheck 'enable automatic backups' (so you're not waiting for completion of this whilst you're working)
+- click 'create database'
 
 ## connect to mysql instance from ec2 instance
-
+- goto rds
+- click on 'databases'
+- select your database instance
+- copy the 'endpoint' value and paste it into the <enndpoint> command below
+    ```mysql -h <end-point> -P 3306 -u <user-name> -p```
+    ```mysql -h database-1.c4lxnjkjrvz9.us-east-1.rds.amazonaws.com -P 3306 -u admin -p```
+- paste the command into the ssh ec2 session on your mac terminal and enter the password when prompted
+- once mysql has launched test it by typing ```show databases;``` and hitting enter
+- type ```quit``` to exit mysql
+    
 ## modify security on mysql instance to allow for access from local-machine
+- goto rds
+- click on 'databases'
+- select your database instance
+- under 'connectivity and security' -> 'security' click on the 'vpc security groups
+
 
 ## connect client on local-machine to mysql instance (mySqlWorkbench)
 
