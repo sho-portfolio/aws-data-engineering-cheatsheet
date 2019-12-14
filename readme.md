@@ -154,7 +154,7 @@ https://medium.com/@chamikakasun/installing-mysql-in-an-ec2-instance-55d6a3e19ca
 
 ## copy file(s) from github / internet to s3 via local-machine / ec2 instance
 
-## use athena to query xml file on s3
+## use athena to query a csv file on s3
 
 ## redshift
 
