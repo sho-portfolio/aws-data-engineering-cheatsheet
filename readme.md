@@ -163,3 +163,14 @@ https://medium.com/@chamikakasun/installing-mysql-in-an-ec2-instance-55d6a3e19ca
 
 ## lake formation
 
+## open a windows ec2 instance from a mac (useful for sq server management studio & ssis)
+- download and install/setup (follow the prompts) 'microsoft remote desktop 10' from the app store
+- goto the ec2 instances dashboard
+- select your windows ec2 instance
+- click 'connect'
+- follow the instructions
+
+- install visual studio
+- goto maange extensions
+- search for integration services
+- install it
