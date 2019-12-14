@@ -137,10 +137,10 @@ https://medium.com/@chamikakasun/installing-mysql-in-an-ec2-instance-55d6a3e19ca
 ## upload csv file from ec2 instance to mysql instance (table)
 - launch mysql on ec2 instance
 - execute the following commands:
--- ```create database quantified;```
--- ```use quantified;```
--- ``create table tbl01 (INPUT_FILENAME varchar(100), XMLType varchar(100), type varchar(100), unit varchar(100), value varchar(100), sourcename varchar(100), sourceversion varchar(100), device varchar(500), creationDate varchar(100), startDate varchar(100), endDate varchar(100), year varchar(100), month varchar(100), day varchar(100), hour varchar(100), wkday varchar(100))```
--- ```LOAD DATA LOCAL INFILE '/home/ec2-user/Structured/Data_AppleHealth_Record_20191213-104755.csv' INTO TABLE tbl01;```
+- ```create database quantified;```
+- ```use quantified;```
+- ```create table tbl01 (INPUT_FILENAME varchar(100), XMLType varchar(100), type varchar(100), unit varchar(100), value varchar(100), sourcename varchar(100), sourceversion varchar(100), device varchar(500), creationDate varchar(100), startDate varchar(100), endDate varchar(100), year varchar(100), month varchar(100), day varchar(100), hour varchar(100), wkday varchar(100))```
+- ```LOAD DATA LOCAL INFILE '/home/ec2-user/Structured/Data_AppleHealth_Record_20191213-104755.csv' INTO TABLE tbl01;```
 
 ## create a glue job to import data from xml to csv
 
