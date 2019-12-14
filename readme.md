@@ -207,6 +207,17 @@ https://medium.com/@chamikakasun/installing-mysql-in-an-ec2-instance-55d6a3e19ca
 - download 'visual studio 2019 community edition' and begin install
 - when you get to the workloads screen check the 'data storage and processing' toolset
 - click install (~2hrs)
-- 
+- to launch goto start->visual studio 2019
+- file -> new -> project
+- open without code
 
+
+
+## launching an ec2 instance using your own saved image
+goto ec2 -> images -> ami
+select your image
+click 'launch'
+follow the promopts (note it may take about 5 mins to initialize before you can connect)
+
+## create an image of an ec2 instance (useful if you've installed things not available by default)
 
