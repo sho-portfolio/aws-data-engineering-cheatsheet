@@ -119,7 +119,7 @@ https://medium.com/@chamikakasun/installing-mysql-in-an-ec2-instance-55d6a3e19ca
 - download and install mysqlworkbench from https://www.mysql.com/products/workbench/
 - launch it (mysqlworkbench)
 
-## connect client on local-machine to mysql instance (mySqlWorkbench)
+## connect client (mySqlWorkbench) on local-machine to mysql instance
 - goto 'database' -> 'manage connections'
 - click 'new'
 - connection name: <enter a name>
