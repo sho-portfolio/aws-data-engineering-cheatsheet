@@ -148,7 +148,7 @@ https://medium.com/@chamikakasun/installing-mysql-in-an-ec2-instance-55d6a3e19ca
 - create a database & table to which you can import your csv data
 ```
 create database quantified-self;
-```use quantified-self;
+use quantified-self;
 ```
 <br/>```create table AppleHealthData(Source VARCHAR(25), XMLType VARCHAR(250), type VARCHAR(250), unit VARCHAR(100), value  FLOAT, sourcename VARCHAR(250), sourceversion  VARCHAR(250), device  VARCHAR(250), creationDate VARCHAR(50), startDate VARCHAR(50), endDate VARCHAR(50), year INT, month INT, day INT, hour INT, wkday INT);```
 ```
