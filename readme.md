@@ -149,8 +149,8 @@ https://medium.com/@chamikakasun/installing-mysql-in-an-ec2-instance-55d6a3e19ca
 ```
 create database quantified-self;
 use quantified-self;
+create table AppleHealthData(Source VARCHAR(25), XMLType VARCHAR(250), type VARCHAR(250), unit VARCHAR(100), value  FLOAT, sourcename VARCHAR(250), sourceversion  VARCHAR(250), device  VARCHAR(250), creationDate VARCHAR(50), startDate VARCHAR(50), endDate VARCHAR(50), year INT, month INT, day INT, hour INT, wkday INT);
 ```
-<br/>```create table AppleHealthData(Source VARCHAR(25), XMLType VARCHAR(250), type VARCHAR(250), unit VARCHAR(100), value  FLOAT, sourcename VARCHAR(250), sourceversion  VARCHAR(250), device  VARCHAR(250), creationDate VARCHAR(50), startDate VARCHAR(50), endDate VARCHAR(50), year INT, month INT, day INT, hour INT, wkday INT);```
 ```
 LOAD DATA LOCAL INFILE '/Users/shomunshi/Library/Mobile\ Documents/com\~apple\~CloudDocs/_PROJECTS/QuantifiedSelf/_TransformedData/Data_AppleHealth_Record_20191218-131754.csv' 
 INTO TABLE AppleHealthData
