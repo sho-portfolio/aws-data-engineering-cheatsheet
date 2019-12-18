@@ -115,7 +115,7 @@ https://medium.com/@chamikakasun/installing-mysql-in-an-ec2-instance-55d6a3e19ca
 - under 'connectivity and security' -> 'security' click on the 'vpc security groups' link
 - in the inbound tab click 'edit' ensure the source is 'anywhere' or 'myip' 
 
-## install a mysql client on your local-machine (mac)
+## install a mysql client (mySqlWorkbench) on your local-machine (mac)
 - download and install mysqlworkbench from https://www.mysql.com/products/workbench/
 - launch it (mysqlworkbench)
 
@@ -133,7 +133,52 @@ https://medium.com/@chamikakasun/installing-mysql-in-an-ec2-instance-55d6a3e19ca
 - select the connection you just created from 'stored connection' dropdown and click ok
 - goto the 'schemas' tab and you will see a list of al the databases
 - type 'show databases;' and execute to check that you can execute sql
-    
+
+## install a mysql engine and client (mySqlWorkbench) on your local-machine (mac)
+[https://dev.mysql.com/doc/refman/5.7/en/osx-installation-pkg.html]
+- download and install mySql community server from https://dev.mysql.com/downloads/mysql/
+- follow the instructions in the link above to install (all straight forward)
+- after the installation completes yo can goto apple -> system preferences (you will see a MySql logo here)
+- goto terminal and type: ```/usr/local/mysql/bin/mysql -u root -p```
+- type: ```show databases;``` to see a list of databases
+
+
+## upload csv file from local machine to mysql server (locally installed) [with example]
+- via terminal connect to your mysql server (```/usr/local/mysql/bin/mysql -u root -p --local-infile healthdb;``) (this bit is needed to upload files using LOAD DATA)
+- create a database & table to which you can import your csv data
+ ```create database quantified-self```;
+ ```use quantified-self;```
+ ```create table AppleHealthData(Source VARCHAR(25), XMLType VARCHAR(250), type VARCHAR(250), unit VARCHAR(100), value  FLOAT, sourcename VARCHAR(250), sourceversion  VARCHAR(250), device  VARCHAR(250), creationDate VARCHAR(50), startDate VARCHAR(50), endDate VARCHAR(50), year INT, month INT, day INT, hour INT, wkday INT);```
+
+ ```
+LOAD DATA LOCAL INFILE '/Users/shomunshi/Library/Mobile\ Documents/com\~apple\~CloudDocs/_PROJECTS/QuantifiedSelf/_TransformedData/Data_AppleHealth_Record_20191218-131754.csv' 
+INTO TABLE AppleHealthData
+FIELDS TERMINATED BY '|' 
+ENCLOSED BY '"' 
+LINES TERMINATED BY '\n'
+IGNORE 1 LINES;
+```
+If you get this error: "The used command is not allowed with this MySQL version" you will need to follow the below instructions:
+[source of instructions for knowing to create a my.cnf file: https://stackoverflow.com/questions/18437689/error-1148-the-used-command-is-not-allowed-with-this-mysql-version]
+[source of instructions for knowing where to put the my.cnf file: https://dev.mysql.com/doc/refman/8.0/en/option-files.html]
+- launch terminal
+- type: ```cd \```
+- type: ```cd etc```
+- type: ```ls``` (check that my.cnf does does not already exist)
+- type: ```sudo nano my.cnf```
+- add the below 2 lines to the file:
+	[mysqld]
+	loose-local-infile = 1
+- exit and save (control + X)
+- stop and start your mysql server [http://osxdaily.com/2014/11/26/start-stop-mysql-commands-mac-os-x/]
+- ```sudo /usr/local/mysql/support-files/mysql.server stop```
+- ```sudo /usr/local/mysql/support-files/mysql.server start```
+- (or you can stop and start from 'system preferences' 
+- then rerun the LOAD DATA command (you may need to log into mySql again before you run it)
+
+## connect mySqlWorkbench to mySql server (both on local machine)
+
+
 ## upload csv file from ec2 instance to mysql instance (table)
 - launch mysql on ec2 instance
 - execute the following commands:
