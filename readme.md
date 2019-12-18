@@ -178,6 +178,13 @@ If you get this error: "The used command is not allowed with this MySQL version"
 - then rerun the LOAD DATA command (you may need to log into mySql again before you run it)
 
 ## connect mySqlWorkbench to mySql server (both on local machine)
+- launch mySqlWorkbench
+- goto 'database' > 'manage connections...'
+- click 'new'
+- provide a connection name (can be anything)
+- leave everything else as defualt (i.e: hostname=127.0.0.1, port=3306)
+- click 'test connection'
+- when you are on the splash screen, right-click anywhere click 'rescan for local...' and your connection should appear
 
 
 ## upload csv file from ec2 instance to mysql instance (table)
