@@ -145,7 +145,7 @@ https://medium.com/@chamikakasun/installing-mysql-in-an-ec2-instance-55d6a3e19ca
 
 
 ## upload csv file from local machine to mysql server (locally installed) [with example]
-- via terminal connect to your mysql server (```/usr/local/mysql/bin/mysql -u root -p --local-infile quantified-self;``) (this bit is needed to upload files using LOAD DATA)
+- via terminal connect to your mysql server (```/usr/local/mysql/bin/mysql -u root -p --local-infile quantified-self;```) (this bit is needed to upload files using LOAD DATA)
 - create a database & table to which you can import your csv data
 ```
 create database quantified-self;
