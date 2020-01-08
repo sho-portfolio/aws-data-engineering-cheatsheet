@@ -140,7 +140,7 @@ https://medium.com/@chamikakasun/installing-mysql-in-an-ec2-instance-55d6a3e19ca
 - follow the instructions in the link above to install (all straight forward)
 - after the installation completes yo can goto apple -> system preferences (you will see a MySql logo here)
 - goto terminal and type: ```/usr/local/mysql/bin/mysql -u root -p```
-- note: the above doesnt work for ```LOAD DATA LOCAL INFILE```, use this instead ```/usr/local/mysql/bin/mysql -u root -p --local-infile quantified-self;``
+- note: the above doesnt work for ```LOAD DATA LOCAL INFILE```, use this instead ```/usr/local/mysql/bin/mysql -u root -p --local-infile quantified-self;```
 - type: ```show databases;``` to see a list of databases
 
 
