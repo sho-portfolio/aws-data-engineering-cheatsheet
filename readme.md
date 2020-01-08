@@ -163,7 +163,7 @@ If you get this error: "The used command is not allowed with this MySQL version"
 [source of instructions for knowing to create a my.cnf file: https://stackoverflow.com/questions/18437689/error-1148-the-used-command-is-not-allowed-with-this-mysql-version]
 [source of instructions for knowing where to put the my.cnf file: https://dev.mysql.com/doc/refman/8.0/en/option-files.html]
 - launch terminal
-- type: ```cd \```
+- type: ```cd /```
 - type: ```cd etc```
 - type: ```ls``` (check that my.cnf does does not already exist)
 - type: ```sudo nano my.cnf```
