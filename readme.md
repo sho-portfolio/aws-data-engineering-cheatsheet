@@ -275,3 +275,5 @@ follow the promopts (note it may take about 5 mins to initialize before you can 
 
 ## create an image of an ec2 instance (useful if you've installed things not available by default)
 
+## create a connection from python to a mysql database table
+install mysql connector for python: ```pip3 install mysql-connector-python```
