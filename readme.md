@@ -276,4 +276,24 @@ follow the promopts (note it may take about 5 mins to initialize before you can 
 ## create an image of an ec2 instance (useful if you've installed things not available by default)
 
 ## create a connection from python to a mysql database table
-install mysql connector for python: ```pip3 install mysql-connector-python```
+- install mysql connector for python: ```pip3 install mysql-connector-python```
+- run the following python code:
+```python
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  passwd="london12",
+  database="healthdb"
+)
+
+mycursor = mydb.cursor()
+
+mycursor.execute("SELECT * FROM a")
+
+myresult = mycursor.fetchall()
+
+for x in myresult:
+  print(x)
+```
