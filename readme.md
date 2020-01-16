@@ -279,21 +279,34 @@ follow the promopts (note it may take about 5 mins to initialize before you can 
 - install mysql connector for python: ```pip3 install mysql-connector-python``` [https://pynative.com/install-mysql-connector-python/]
 - run the following python code:
 ```python
+# https://pynative.com/python-mysql-execute-parameterized-query-using-prepared-statement/
+
 import mysql.connector
+from mysql.connector import Error
+from mysql.connector import errorcode
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  passwd="some password",
-  database="healthdb"
-)
+try:
+  connection = mysql.connector.connect(host="localhost", user="root", passwd="london12", database="healthdb")
 
-mycursor = mydb.cursor()
+  cursor = connection.cursor()
 
-mycursor.execute("SELECT * FROM a")
+  sql = """ SELECT * FROM tblInterpolateExample """
+  cursor.execute(sql)
+  result = cursor.fetchall()
 
-myresult = mycursor.fetchall()
+  print(result)
 
-for x in myresult:
-  print(x)
+  print("\n")
+
+  for x in result:
+    print (x)
+
+except mysql.connector.Error as error:
+  print("Error: {}".format(error))
+
+finally:
+  if (connection.is_connected()):
+    cursor.close()
+    connection.close()
+    print("MySQL connection is closed")
 ```
