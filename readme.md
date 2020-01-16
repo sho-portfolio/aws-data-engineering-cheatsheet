@@ -277,7 +277,7 @@ follow the promopts (note it may take about 5 mins to initialize before you can 
 
 ## create a connection from python to a mysql database table
 - install mysql connector for python: ```pip3 install mysql-connector-python``` [https://pynative.com/install-mysql-connector-python/]
-- run the following python code:
+- run the following python code to SELECT data:
 ```python
 # https://pynative.com/python-mysql-execute-parameterized-query-using-prepared-statement/
 
@@ -286,7 +286,7 @@ from mysql.connector import Error
 from mysql.connector import errorcode
 
 try:
-  connection = mysql.connector.connect(host="localhost", user="root", passwd="london12", database="healthdb")
+  connection = mysql.connector.connect(host="localhost", user="root", passwd="some_password", database="healthdb")
 
   cursor = connection.cursor()
 
@@ -303,6 +303,32 @@ try:
 
 except mysql.connector.Error as error:
   print("Error: {}".format(error))
+
+finally:
+  if (connection.is_connected()):
+    cursor.close()
+    connection.close()
+    print("MySQL connection is closed")
+```
+
+- run the following python code to INSERT data:
+```python
+import mysql.connector
+from mysql.connector import Error
+from mysql.connector import errorcode
+
+try:
+  connection = mysql.connector.connect(host="localhost", user="root", passwd="some_password", database="healthdb")
+
+  cursor = connection.cursor(prepared=True)
+
+  sql = """ INSERT INTO tblInterpolateExampleComplete (orderId, valInterp) VALUES (%s, %s) """
+  recordTuple = (8, 9)
+  cursor.execute(sql, recordTuple)
+  connection.commit()
+
+except mysql.connector.Error as error:
+  print("Failed to insert into MySQL table {}".format(error))
 
 finally:
   if (connection.is_connected()):
